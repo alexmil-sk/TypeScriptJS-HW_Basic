@@ -1,18 +1,26 @@
 {
   "name": "hw",
   "version": "1.0.0",
-  "description": "",
+  "description": "Typescript project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemone index.js"
+    "build": "rd -r dist/scripts 2>null & tsc",
+    "build:dev": "rd -r dist/scripts 2>null & tsc -p tsconfig-dev.json",
+    "start": "node dist/scripts/index.js",
+    "lint": "eslint src --ext .js --ext .ts",
+    "lint-fix": "eslint src --ext .js --ext .ts --fix"
   },
   "author": "Aleksej",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@types/node": "^17.0.14",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.5"
   },
   "dependencies": {
-    "colors": "^1.4.0"
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint": "^8.8.0"
   }
 }
