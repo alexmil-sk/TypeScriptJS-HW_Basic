@@ -1,20 +1,105 @@
 import { Book } from './book.js';
-import { books } from './books-collection.js';
+import { FND } from './author.js';
+import { reviewFND } from './types.js';
+
+//const book: Book = new Book('Harry Potter', 'fantasy', 980, 1000);
+//const book2: Book = new Book('Lord of the Ring');
+//
+//console.log(book.genre.toUpperCase(), book.price.toFixed(2));
+//console.log(book2.genre?.toUpperCase(), book2.price?.toFixed(2));//_Возвращает undefined и программа не //падает
+//console.table(book2);
+//
+//book2.price !== null ? console.log(`Price of the book is: ${book2.price}`) : console.log('You can\'t buy this book((');
 
 
-function findSuitableBook(genre: string, pagesLimit: number, isMultiple = false): Book | Book[] | undefined {
-  const findBook = (book: Book): boolean => {
-    return book.genre === genre && book.pageAmount <= pagesLimit
-  };
+//=========================================================================
 
-  return isMultiple ? books.filter(findBook) : books.find(findBook);
+//const genre: string = 'fairytail';
+//const price: number = 908;
+//
+//const book3: Book = new Book('Some fairytail', genre, null, price);
+////console.table(book3);
+//
+//function serialize(value: unknown): string {
+//  if (value === null) {
+//    return value + '';
+//  }
+//
+//  if (value instanceof Book) {
+//    return `${value.name.toUpperCase()},${value.genre},${value.price.toUpperCase()}`;
+//  }
+//
+//}
+//
+//console.table(serialize(book3));
+
+//===================================================================
+
+//interface Car {
+//wheels: number,
+//model: string
+//}
+//
+//const myCars: Car[] = []; 
+//const myFavorites: Car[] = [];
+//
+//const addCar = (car: Car, isFavorite: boolean = false): boolean => {
+//
+//  if (isFavorite) {
+//    myFavorites.push(car);
+//  }
+//  myCars.push(car);
+//  return true;
+//};
+//
+//const newCar: Car = {
+//  wheels: 4,
+//  model: 'BMW'
+//} 
+//
+//addCar(newCar, true);
+//
+//console.log(myCars);
+//console.log(myFavorites);
+
+//=================================================
+
+//const cookPlov = (...args: string[]) => {
+//  console.log(`Rizzotto is done from: ${args.join(', ')}`);
+//};
+//
+//cookPlov('meet', 'rice', 'izum');
+
+//================================================
+
+const bookFND = new Book('Преступление и наказание', FND, 'триллер', 800, 2120, reviewFND);
+
+interface iBuyCallback {
+  // eslint-disable-next-line no-unused-vars
+  (error?: Error, transactionId?: string): void ;
 }
 
-export const foundBook = findSuitableBook('fantasy', 2000, true);
-
-if (foundBook instanceof Book) {
-  console.log(foundBook.name);
-} else {
-  console.table(foundBook);
+function buyRequest() {
+  //Логика покупки
+  const transactionId = (Math.floor(Math.random() * 10e10)).toString();
+  return Promise.resolve(transactionId);
 }
 
+const callback: iBuyCallback = (error, transactionId) => {
+  if (error === null && transactionId !== null) {
+    console.log('Ваша книга: ', bookFND);
+    console.log('transactionId: ', transactionId);
+    console.log('Buying was successfull!');
+  } else {
+    console.error('Error: ', error);
+  }
+};
+
+function buy(book: Book, callback): void {
+  buyRequest()
+    .then(id => callback(null, id))
+    .catch(error => callback(error))
+}
+
+//_Попробуем купить Ф.Н.Достоевского "Преступление и наказание"
+buy(bookFND, callback);
