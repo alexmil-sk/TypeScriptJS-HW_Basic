@@ -6,23 +6,13 @@ export interface Author extends Raitingable {
   raiting: number,
 }
 
-export const myAuthor1: Author = {
+export const myAuthor: Author = {
   firstName: 'Peter',
   lastName: 'Petrov',
   raiting: 4.3
 }
-export const myAuthor2: Author = {
-  firstName: 'Vasja',
-  lastName: 'Vasiljev',
-  raiting: 4.6
-}
-export const myAuthor3: Author = {
-  firstName: 'Stanislav',
-  lastName: 'Lem',
-  raiting: 5.2
-}
 
-export const FMD: Author = {
+export const FND: Author = {
   firstName: 'Федор',
   lastName: 'Достоевский',
   raiting: 5.0

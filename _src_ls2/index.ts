@@ -1,7 +1,6 @@
 import { Book } from './book.js';
-import { FMD } from './author.js';
+import { FND } from './author.js';
 import { reviewFND } from './types.js';
-import { books, findMyBook } from './books-collection.js';
 
 //const book: Book = new Book('Harry Potter', 'fantasy', 980, 1000);
 //const book2: Book = new Book('Lord of the Ring');
@@ -73,7 +72,7 @@ import { books, findMyBook } from './books-collection.js';
 
 //================================================
 
-const bookFMD = new Book('Преступление и наказание', FMD, 'триллер', 800, 2120, reviewFND);
+const bookFND = new Book('Преступление и наказание', FND, 'триллер', 800, 2120, reviewFND);
 
 interface iBuyCallback {
   // eslint-disable-next-line no-unused-vars
@@ -88,8 +87,7 @@ function buyRequest() {
 
 const callback: iBuyCallback = (error, transactionId) => {
   if (error === null && transactionId !== null) {
-    console.log('Ваша книга: ', bookFMD);
-    console.log(books);
+    console.log('Ваша книга: ', bookFND);
     console.log('transactionId: ', transactionId);
     console.log('Buying was successfull!');
   } else {
@@ -103,10 +101,5 @@ function buy(book: Book, callback): void {
     .catch(error => callback(error))
 }
 
-//_Попробуем купить Ф.М.Достоевского "Преступление и наказание"
-buy(bookFMD, callback);
-
-//_Функция ВОЗЬМИ КНИГУ С ПОЛКИ=========================
-
-
-
+//_Попробуем купить Ф.Н.Достоевского "Преступление и наказание"
+buy(bookFND, callback);
