@@ -1,7 +1,9 @@
 import { Book } from './book.js';
 import { FMD } from './author.js';
 import { reviewFND } from './types.js';
-import { books, findMyBook } from './books-collection.js';
+import { books } from './books-collection.js';
+import { Collection } from './collection.js';
+
 
 //const book: Book = new Book('Harry Potter', 'fantasy', 980, 1000);
 //const book2: Book = new Book('Lord of the Ring');
@@ -107,6 +109,11 @@ function buy(book: Book, callback): void {
 buy(bookFMD, callback);
 
 //_Функция ВОЗЬМИ КНИГУ С ПОЛКИ=========================
+
+//const myCollection: Collection<number, string> = new Collection();
+
+//const BookCollection: Collection<Book, string>;
+
 
 
 
