@@ -9,7 +9,9 @@
     "build:dev": "rd -r dist/scripts 2>null & tsc -p tsconfig-dev.json",
     "start": "node dist/scripts/index.js",
     "lint": "eslint src --ext .js --ext .ts",
-    "lint-fix": "eslint src --ext .js --ext .ts --fix"
+    "lint:dist": "eslint dist/scripts --ext .js",
+    "lint-fix": "eslint src --ext .js --ext .ts --fix",
+    "lint-fix:dist": "eslint dist/scripts --ext .js --fix"
   },
   "author": "Aleksej",
   "license": "ISC",

@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "outDir": "dist/scripts",
-    "target": "es2015",
-    "module": "es2015",
+    "target": "es2021",
+    "module": "es2022",
     "moduleResolution": "node"
   },
-  "files": [
-    "src/index.ts",
-    "src/books.ts",
-    "src/books-collection.ts"
-  ],
+  //"files": [
+  //  "src/index.ts",
+  //  "src/book.ts",
+  //  "src/books-collection.ts"
+  //],
   "include": [ //__При небольшом количестве файлов использовать массив files, а при большом проекте - массив include
     "src/**/*"
   ]
