@@ -1,76 +1,11 @@
 import { Book } from './book.js';
+import { books as booksColl } from './books-collection.js';
 import { FND } from './author.js';
 import { reviewFND } from './types.js';
+//import { search, lookup} from 'google-books-search';
+import * as books from 'google-books-search';
 
-//const book: Book = new Book('Harry Potter', 'fantasy', 980, 1000);
-//const book2: Book = new Book('Lord of the Ring');
-//
-//console.log(book.genre.toUpperCase(), book.price.toFixed(2));
-//console.log(book2.genre?.toUpperCase(), book2.price?.toFixed(2));//_Возвращает undefined и программа не //падает
-//console.table(book2);
-//
-//book2.price !== null ? console.log(`Price of the book is: ${book2.price}`) : console.log('You can\'t buy this book((');
-
-
-//=========================================================================
-
-//const genre: string = 'fairytail';
-//const price: number = 908;
-//
-//const book3: Book = new Book('Some fairytail', genre, null, price);
-////console.table(book3);
-//
-//function serialize(value: unknown): string {
-//  if (value === null) {
-//    return value + '';
-//  }
-//
-//  if (value instanceof Book) {
-//    return `${value.name.toUpperCase()},${value.genre},${value.price.toUpperCase()}`;
-//  }
-//
-//}
-//
-//console.table(serialize(book3));
-
-//===================================================================
-
-//interface Car {
-//wheels: number,
-//model: string
-//}
-//
-//const myCars: Car[] = []; 
-//const myFavorites: Car[] = [];
-//
-//const addCar = (car: Car, isFavorite: boolean = false): boolean => {
-//
-//  if (isFavorite) {
-//    myFavorites.push(car);
-//  }
-//  myCars.push(car);
-//  return true;
-//};
-//
-//const newCar: Car = {
-//  wheels: 4,
-//  model: 'BMW'
-//} 
-//
-//addCar(newCar, true);
-//
-//console.log(myCars);
-//console.log(myFavorites);
-
-//=================================================
-
-//const cookPlov = (...args: string[]) => {
-//  console.log(`Rizzotto is done from: ${args.join(', ')}`);
-//};
-//
-//cookPlov('meet', 'rice', 'izum');
-
-//================================================
+//=======================================================================================
 
 const bookFND = new Book('Преступление и наказание', FND, 'триллер', 800, 2120, reviewFND);
 
@@ -103,3 +38,13 @@ function buy(book: Book, callback): void {
 
 //_Попробуем купить Ф.Н.Достоевского "Преступление и наказание"
 buy(bookFND, callback);
+
+//========================================================================================
+
+//;_.search(query, options, callback);
+
+books.search('Professional JavaScript for Web Developers', { field: 'authors'},function (error, results) {
+  if (!error) console.log(results);
+  else console.log(error);
+});
+

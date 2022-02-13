@@ -2,7 +2,8 @@
   "name": "hw",
   "version": "1.0.0",
   "description": "Typescript project",
-  "main": "index.js",
+  "main": "./dist/scripts/index.js",
+  "types": "./dist/scripts/types/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "rd -r dist/scripts 2>null & tsc",
@@ -23,6 +24,9 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
-    "eslint": "^8.8.0"
+    "eslint": "^8.8.0",
+    "google-books-search": "^0.3.1"
   }
 }
+
+
