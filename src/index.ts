@@ -12,14 +12,24 @@ const database: IDatabase[] = [
   },
 ]
 
-cloneDate(date) {
-  return new Date(date.getTime())
+export function cloneDate(date: Date) {
+  return new Date(date.getTime());
 }
 
-addDays(date, days) {
+//_ПРОВЕРКА РАБОТЫ ФУНКЦИИ cloneDate() ======
+const clone = cloneDate(new Date('July 20, 69 20:17:40 GMT+00:00'));
+console.log(clone);
+//============================================
+
+export function addDays(date: Date, days: number) {
   date.setDate(date.getDate() + days)
-  return date
+  return date;
 }
+
+//_ПРОВЕРКА РАБОТЫ ФУНКЦИИ addDays() ======
+const add = addDays(new Date('July 20, 69 20:17:40 GMT+00:00'), 25);
+console.log(add);
+//==========================================
 
 const backendPort = 3040
 const localStorageKey = 'flat-rent-db'

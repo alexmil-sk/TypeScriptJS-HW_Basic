@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 
-export declare interface IDatabase {
+declare interface IDatabase {
     id: string,
     title: string,
     details: string,
@@ -11,13 +11,13 @@ export declare interface IDatabase {
     price: number
   }
 
-export declare function cloneDate(date: Date): object;
-export declare function addDays(date: Date, days: number): object;
+declare function cloneDate(date: Date): object;
+declare function addDays(date: Date, days: number): object;
 
-export declare const backendPort: number;
-export declare const localStorageKey: string;
+declare const backendPort: number;
+declare const localStorageKey: string;
 
-export declare class FlatRentSdk {
+declare class FlatRentSdk {
   get(id: IDatabase): Promise<unknown>;
   
   search(parameters: string): Promise<unknown>;
