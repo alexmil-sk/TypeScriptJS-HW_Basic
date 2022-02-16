@@ -5,7 +5,7 @@
     "module": "es2015",
     "moduleResolution": "node",
     "allowJs": true,
-    "strict": false,
+    "strict": true,
     "declaration": true,
     "declarationDir": "dist/scripts/types", 
   },
@@ -16,5 +16,5 @@
   //],
   "include": [ //__При небольшом количестве файлов использовать массив files, а при большом проекте - массив include
     "src/**/*"
-  ]
+  ],
 }
