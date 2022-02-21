@@ -67,7 +67,7 @@ class MyRectangle  extends MyAreaPrimitive2D {
   }
 }
 
-const newRectangle = new MyRectangle(0, 0, 20, 20);
+const newRectangle: MyRectangle = new MyRectangle(0, 0, 20, 20);
 console.log(newRectangle.getRectSquare());
 
 
@@ -91,5 +91,5 @@ class MyCircle extends MyAreaPrimitive2D implements ICircle {
   }
 }
 
-const newCircle = new MyCircle(0, 0, 10);
+const newCircle: MyCircle = new MyCircle(0, 0, 10);
 console.log(newCircle.getCircleSquare());
